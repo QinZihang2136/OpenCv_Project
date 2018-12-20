@@ -10,7 +10,7 @@ Mat src,gray,dst;
 int main(int argc, char *argv[])
 {
 
-    src =imread("/home/qinzihang/OpenCV_Picture/1.jpg");
+    src =imread("/home/qinzihang/OpenCV_Picture/detect/1.png");
     imshow("GG",src);
 
     waitKey(0);
