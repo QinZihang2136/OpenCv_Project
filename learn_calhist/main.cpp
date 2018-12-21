@@ -15,7 +15,7 @@ float range[] = { 0, 256 };
 const float * histRanges = range;
 Mat hist;
 void callback(int event, int x,int y, int flags, void* param);
-int histSize;
+int histSize = 2;
 int main(int argc, char *argv[])
 {
     namedWindow("GG",WINDOW_AUTOSIZE);
@@ -24,8 +24,10 @@ int main(int argc, char *argv[])
     src =imread("/home/qinzihang/OpenCV_Picture/detect/1.png");
     GaussianBlur(src,dst,Size(5,5),11);
     threshold(dst, dst, 30, 255, CV_THRESH_BINARY);
-    //cvtColor(dst,dst,COLOR_BGR2GRAY);
-
+    cvtColor(dst,dst,COLOR_BGR2GRAY);
+    calcHist(&dst,1,0,Mat(),hist,1,&histSize,&histRanges);
+    imshow("hist",hist);
+    cout << hist << endl;
 
     imshow("GG",dst);
 
